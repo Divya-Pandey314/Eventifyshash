@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+:root {
+  /* Unstop Colors */
+  --color-primary: #1c4980;
+  --color-primary-hover: #153865;
+  --color-ink-black: #1c1c1c;
+  --color-signal-orange: #f47120;
+  --color-ice-blue: #f1f5f9;
+  --color-pure-white: #FFFFFF;
+  --color-emerald: #0ea85e;
+  --color-alert-red: #ef4444;
+  --color-amber: #fbbd06;
+  --color-violet: #8c52ff;
+  --color-sky-blue: #1abdd6;
+  --color-slate-gray: #4b5563;
+  --color-cool-gray: #e5e7eb;
+  --color-ghost-white: #f8f9fa;
+
+  /* Typography */
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Sora', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --text-hero: 800 3.5rem/1.2 var(--font-heading);
+  --text-h1: 700 2.5rem/1.2 var(--font-heading);
+  --text-h2: 700 1.75rem/1.2 var(--font-heading);
+  --text-h3: 600 1.375rem/1.2 var(--font-heading);
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(248, 245, 245, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.12);
+
+  /* Legacy re-maps for existing code to prevent total breakage immediately */
+  --linkedin-blue: var(--color-primary);
+  --linkedin-blue-hover: #1D4ED8;
+  --linkedin-bg: var(--color-ghost-white);
+  --linkedin-white: var(--color-pure-white);
+  --linkedin-text-primary: var(--color-ink-black);
+  --linkedin-text-secondary: var(--color-slate-gray);
+  --linkedin-text-tertiary: #94A3B8;
+  --linkedin-border: var(--color-cool-gray);
+  --linkedin-divider: var(--color-cool-gray);
+  --linkedin-card-bg: var(--color-pure-white);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ghost-white);
+  color: var(--color-ink-black);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Professional Utilities */
+.btn-primary {
+  background-color: var(--linkedin-blue);
+  color: white;
+  padding: 0.4rem 1.4rem;
+  border-radius: 1.6rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background-color: var(--linkedin-blue-hover);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--linkedin-text-secondary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1.4rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  color: var(--linkedin-text-primary);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--linkedin-blue);
+  padding: 0.4rem 1.4rem;
+  border-radius: 1.6rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  border: 1px solid var(--linkedin-blue);
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outline:hover {
+  background-color: rgba(10, 102, 194, 0.1);
+  box-shadow: inset 0 0 0 1px var(--linkedin-blue);
+}
+
+.card {
+  background-color: var(--color-pure-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-cool-gray);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+@keyframes pulseWarning {
+
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseUrgent {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
+  }
+
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 8px 2px rgba(220, 38, 38, 0.4);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Base resets for lists and links */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: var(--linkedin-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
